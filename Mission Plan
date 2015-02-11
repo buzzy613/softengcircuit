@@ -5,3 +5,10 @@ How i think we should start building coing or conceptualizing our project.
 3) Add variables (resistors etc.) and add the math to the circuit upon placed variables.
 4) Clean up GUI
 5) add more variables and math that goes with them.
+
+
+This project will replicate a hobbyist level circuit diagram that can be used for drafting purposes. It will show a grid 
+with various components and wires connecting them. This will be easily editable and testable using a volimeter function.
+We are aiming to maximize ease of use by using a simple breadboardesque layout and a drag and drop tool box menu to
+visualize storage of components. We hope to eventually support custom and precoded ICs and represent oscilating 
+current/voltage. Another additional goal is to creat the ablility to save and reopen circuit designs.
