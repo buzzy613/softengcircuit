@@ -1,0 +1,7 @@
+How i think we should start building coing or conceptualizing our project.
+
+1) build simple grid layout where we can interact with by placing lines that will represent the circut itself. 
+2) construct poles (+,-) and pass user input values through ie. DC volatge/current. Simple test. 
+3) Add variables (resistors etc.) and add the math to the circuit upon placed variables.
+4) Clean up GUI
+5) add more variables and math that goes with them.
