@@ -6,10 +6,10 @@ package com.joshrobjames.circuitapp;
 public class Component {
     private int numLeads;
 
-    public Component(int num){
+    public Component (int num){
         numLeads = num;
     }
-    public int getNumLeads(){
+    public int getNumLeads (){
         return numLeads;
     }
 }
