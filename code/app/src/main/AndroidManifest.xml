@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".description"
+            android:label="@string/title_activity_description" >
+        </activity>
+        <activity
+            android:name=".circuitboard"
+            android:label="@string/title_activity_circuitboard" >
+        </activity>
     </application>
 
 </manifest>
