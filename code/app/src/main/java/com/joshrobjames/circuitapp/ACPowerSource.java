@@ -4,14 +4,14 @@ package com.joshrobjames.circuitapp;
  * Created by James on 3/16/2015.
  */
 public class ACPowerSource extends PowerSource {
-    private int hertz;
+    private int frequency;// in hertz
 
-    public ACPowerSource (int V, float A, int H, int leads){
-        super (V, A, leads);
-        hertz = H;
+    public ACPowerSource (int V, float A, int H){
+        super (V, A);
+        frequency = H;
     }
 
-    public int getHertz (){
-        return hertz;
+    public int getfrequency (){
+        return frequency;
     }
 }

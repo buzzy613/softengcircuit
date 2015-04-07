@@ -7,8 +7,8 @@ public class PowerSource extends Component{
     private int voltage;
     private float maxAmps;
 
-    public PowerSource (int V, float A, int leads){
-        super (leads);
+    public PowerSource (int V, float A){
+        super (2);
         voltage = V;
         maxAmps = A;
     }

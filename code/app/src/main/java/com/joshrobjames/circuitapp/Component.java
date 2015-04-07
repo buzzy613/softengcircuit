@@ -12,4 +12,7 @@ public class Component {
     public int getNumLeads (){
         return numLeads;
     }
+    public void addLeads ( int L ) {
+        numLeads = numLeads + L;
+    }
 }
