@@ -7,6 +7,10 @@ public class Resistor extends Component {
     private int resistance;// in ohms
     private float tolerance;// a percentage
 
+    //simulation values
+    private float volt;
+    private float amp;
+
     public Resistor (int R, float  T){
         super (2);
         resistance = R;
@@ -19,6 +23,31 @@ public class Resistor extends Component {
 
     public float getTolerance (){
         return tolerance;
+    }
+
+    public void setResistance ( int R ) {
+        resistance = R;
+    }
+
+    public void setTolerance ( float T ) {
+        tolerance = T;
+    }
+
+
+    public float getVolt () {
+        return volt;
+    }
+
+    public float getAmp () {
+        return amp;
+    }
+
+    public void setVolt ( float V ) {
+        volt = V;
+    }
+
+    public void setAmp ( float A ) {
+        amp = A;
     }
 
     /*public String[] getColors () {//not finished
