@@ -9,6 +9,7 @@ public class ACPowerSource extends PowerSource {
     public ACPowerSource (int V, float A, int H){
         super (V, A);
         frequency = H;
+        type = "AC power source";
     }
 
     public int getfrequency (){

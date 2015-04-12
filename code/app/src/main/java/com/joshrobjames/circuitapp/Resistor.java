@@ -4,7 +4,7 @@ package com.joshrobjames.circuitapp;
  * Created by James on 3/15/2015.
  */
 public class Resistor extends Component {
-    private int resistance;// in ohms
+    private float resistance;// in ohms
     private float tolerance;// a percentage
 
     //simulation values
@@ -15,9 +15,10 @@ public class Resistor extends Component {
         super (2);
         resistance = R;
         tolerance = T;
+        type = "resistor";
     }
 
-    public int getResistance (){
+    public float getResistance (){
         return resistance;
     }
 
@@ -25,7 +26,7 @@ public class Resistor extends Component {
         return tolerance;
     }
 
-    public void setResistance ( int R ) {
+    public void setResistance ( float R ) {
         resistance = R;
     }
 

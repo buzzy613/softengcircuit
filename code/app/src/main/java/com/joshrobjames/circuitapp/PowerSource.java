@@ -11,6 +11,7 @@ public class PowerSource extends Component{
         super (2);
         voltage = V;
         maxAmps = A;
+        type = "power source";
     }
 
     public int getVoltage (){

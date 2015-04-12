@@ -11,6 +11,7 @@ public class Capacitor extends Component {
         super (leads);
         capacitance = C;
         breakVoltage = B;
+        type = "capacitor";
     }
 
     public float getCapacitance(){

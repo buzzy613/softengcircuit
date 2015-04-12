@@ -5,6 +5,7 @@ package com.joshrobjames.circuitapp;
  */
 public class Component {
     private int numLeads;
+    public String type;
 
     public Component (int num){
         numLeads = num;
