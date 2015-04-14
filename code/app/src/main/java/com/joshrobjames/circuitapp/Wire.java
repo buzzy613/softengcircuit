@@ -7,11 +7,13 @@ public class Wire extends Component {
 
     public Wire(){
         super (2);
+        type = "wire";
     }
 
     public void addParallel( Component connect ) {
         addLeads( 1 );
-        //FURTHER THINGS
+        addConnected ( connect );
+        //FURTHER THINGS?
     }
 }
 
