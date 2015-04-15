@@ -35,6 +35,11 @@ public class Circuit {
         //INSERT CODE HERE
 
 
+        //the following does voltage and amperage calculations, assigns relevant values
+        //to components, and marks burn-outs
+        //INSERT CODE HERE
+
+
         return status;
     }
 }
