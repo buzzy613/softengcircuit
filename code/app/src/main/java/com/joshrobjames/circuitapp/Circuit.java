@@ -22,12 +22,13 @@ public class Circuit {
 
         //the following makes sure there's a power supply in the circuit
         int powercheck = -1;
-        for ( int i = 0; i < components.size(); i++ ) {
-            if ( ( components.get( i ).type.equals( "power source" ) ) || ( components.get( i ).type.equals( "AC power source" ) ) ) {
-                powercheck = i;
-                break;
+        do {
+            for (int i = 0; i < components.size(); i++) {
+                if ((components.get(i).type.equals("power source")) || (components.get(i).type.equals("AC power source"))) {
+                    powercheck = i;
+                }
             }
-        }
+        } while ( powercheck < 0 );
         if ( powercheck < 0 ){
             status = "Unpowered";
         }
@@ -35,10 +36,22 @@ public class Circuit {
         //the following makes sure there is a complete circuit and marks offline components
         int circuitcheck = powercheck;
         if ( status.equals( "Valid" )) {
-            if (components.elementAt(circuitcheck).getConnected().isEmpty())//why is java stupid?
+            if ( components.elementAt( circuitcheck ).getConnected().isEmpty() )//if there is nothing connected to the battery...
                 status = "Incomplete";
 
-            //LOOPish HERE
+            else {
+                int[] checked;
+                checked = new int[components.size()];
+                do{
+                    int contains;
+                    for (int i = 0; i < checked.length; i++){
+                        if ( checked[i] == circuitcheck ){
+                            contains = 1;
+                        }
+                    }
+                    if 
+                }while ( circuitcheck != powercheck );
+            }
         }
 
 

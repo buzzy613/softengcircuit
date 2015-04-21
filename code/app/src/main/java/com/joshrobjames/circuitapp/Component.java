@@ -6,7 +6,7 @@ import java.util.Vector;
  * Created by James on 3/15/2015.
  */
 public class Component {
-    private int numLeads;
+    private int numLeads;//connected should not exceed this
     protected String type;
     private Vector<Component> connected;//stores directly connected components
 
@@ -27,8 +27,13 @@ public class Component {
         numLeads = numLeads + L;
     }
 
-    public void addConnected ( Component C ) {
-        connected.add( C );
+    public boolean addConnected ( Component C ) {
+        if ( connected.size() < numLeads ) {
+            connected.add(C);
+            return true;
+        }
+        else
+            return false;
     }
 
     public Vector<Component> getConnected () {

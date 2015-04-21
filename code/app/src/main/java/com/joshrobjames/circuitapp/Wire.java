@@ -6,12 +6,12 @@ package com.joshrobjames.circuitapp;
 public class Wire extends Component {
 
     public Wire(){
-        super (2);
+        super ( 2 );
         type = "wire";
     }
 
     public void addParallel( Component connect ) {
-        addLeads( 1 );
+        addLeads ( 1 );
         addConnected ( connect );
         //FURTHER THINGS?
     }
