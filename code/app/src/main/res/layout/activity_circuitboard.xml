@@ -14,7 +14,7 @@
         android:id="@+id/powersource"
         android:layout_alignTop="@+id/resistor"
         android:layout_alignParentStart="true"
-        android:onClick="displayPS"/>
+        android:onClick="displayPS2"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -23,7 +23,8 @@
         android:text="Resistor"
         android:id="@+id/resistor"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/powersource" />
+        android:layout_toEndOf="@+id/powersource"
+        android:onClick="displayR2"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -59,7 +60,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/powersource" />
+        android:layout_below="@+id/powersource"
+       />
 
     <Button
         android:layout_width="wrap_content"
