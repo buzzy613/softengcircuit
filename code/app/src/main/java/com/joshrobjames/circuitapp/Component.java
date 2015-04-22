@@ -8,7 +8,7 @@ import java.util.Vector;
 public class Component {
     private int numLeads;//connected should not exceed this
     protected String type;
-    private Vector<int> connected;//stores directly connected components
+    private Vector<Component> connected;//stores directly connected components
 
     //simulation values
     private float volt;
@@ -27,7 +27,7 @@ public class Component {
         numLeads = numLeads + L;
     }
 
-    public boolean addConnected ( int C ) {
+    public boolean addConnected ( Component C ) {
         if ( connected.size() < numLeads ) {
             connected.add(C);
             return true;
@@ -36,7 +36,7 @@ public class Component {
             return false;
     }
 
-    public Vector<int> getConnected () {
+    public Vector<Component> getConnected () {
         return connected;
     }
 
