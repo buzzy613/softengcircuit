@@ -46,13 +46,25 @@ public class Circuit {
                 checked = new Component[components.size()];
                 circuitcheck = circuitcheck.getConnected().get(0);
 
+                int branchy = 0;
+                int branchx = 0;
+
                 do{
                     int contains = 0;
                     for (int i = 0; i < checked.length; i++){
                         if ( checked[i] == circuitcheck )
                             contains = 1;
                     }
-
+                    if ( circuitcheck.getConnected().size() <= 2 ){
+                        branches[branchy][branchx] = circuitcheck;
+                        branchx++;
+                    }
+                    else{
+                        branchy++;
+                        branchx = 0;
+                        branches[branchy][branchx] = circuitcheck;
+                    }
+                    
                 }while ( circuitcheck != components.get(powercheck) );
             }
         }
