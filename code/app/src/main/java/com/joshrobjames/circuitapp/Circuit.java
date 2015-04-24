@@ -49,7 +49,7 @@ public class Circuit {
                             contains = 1;
                         }
                     }
-                    if 
+                    //if
                 }while ( circuitcheck != powercheck );
             }
         }

@@ -12,20 +12,21 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
+import android.content.Intent;
 
 
 public class circuitboard extends ActionBarActivity implements View.OnTouchListener {
-   // Bitmap battery;
-   // Bitmap resistor;
 
-    //float x = 0;
-    //float y = 0;
-    //private SurfaceHolder svHolder;
-    //private SurfaceView sv;
-    //Canvas c = new Canvas();
+    SurfaceView circuit;
+    boolean flag_pressed = false;
+
+    Canvas c;
 
     OurView v;
+
     Bitmap battery;
     Bitmap resistor;
     float x,y;
@@ -33,9 +34,13 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_circuitboard);
-        //battery = BitmapFactory.decodeResource(getResources(), R.drawable.genericbattery);
-        //resistor = BitmapFactory.decodeResource(getResources(), R.drawable.genericresistor);
+        circuit =(SurfaceView)findViewById(R.id.surfaceView1);
+        //setContentView(R.layout.activity_circuitboard);
+       // Button batteryB =  (Button) findViewById(R.id.powersource);
+        battery = BitmapFactory.decodeResource(getResources(), R.drawable.generic_battery_left);
+        resistor = BitmapFactory.decodeResource(getResources(), R.drawable.generic_resistor_h);
           //sv = (SurfaceView) findViewById(R.id.surfaceView);
          //svHolder = sv.getHolder();
         //sv.setWillNotDraw(false);
@@ -45,13 +50,20 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
         //svHolder.unlockCanvasAndPost(c);
 
         v = new OurView(this); //calls the public class OurView
-        v.setOnTouchListener(this);
-        battery = BitmapFactory.decodeResource(getResources(), R.drawable.genericbattery);
-        resistor = BitmapFactory.decodeResource(getResources(), R.drawable.genericresistor);
 
-        x = 0;
-        y = 0;
-        setContentView(v);
+
+
+
+
+
+
+        //v.setOnTouchListener(this);
+        //battery = BitmapFactory.decodeResource(getResources(), R.drawable.generic_battery);
+        //resistor = BitmapFactory.decodeResource(getResources(), R.drawable.generic_resistor);
+
+        //x = 0;
+        //y = 0;
+        //setContentView(circuit);
 
     }
 
@@ -90,10 +102,7 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
     }
 
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
-
-        //x = event.getX();
-        //y = event.getY();
+    public boolean onTouch(View OurView, MotionEvent event) {
 
         try {
             Thread.sleep(50);
@@ -102,14 +111,14 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
         }
 
         switch(event.getAction()){
-            case MotionEvent.ACTION_DOWN:
+            /*case MotionEvent.ACTION_DOWN:
                 x = event.getX();
                 y = event.getY();
                 break;
             case MotionEvent.ACTION_UP:
                 x = event.getX();
                 y = event.getY();
-                break;
+                break;*/
             case MotionEvent.ACTION_MOVE:
                 x = event.getX();
                 y = event.getY();
@@ -126,6 +135,7 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
         SurfaceHolder holder;
         boolean isItOk = false;
 
+
         public OurView(Context context) {
             super(context);
             holder = getHolder();
@@ -138,10 +148,23 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
                 if(!holder.getSurface().isValid()){ //looping back to the while loop if it is not valid
                     continue;
                 }
-                    Canvas c = holder.lockCanvas(); //to lock the canvas in order to paint to the canvas
-                    c.drawARGB(255, 150, 150, 10); //paint background of canvas
-                    c.drawBitmap(battery, x - (battery.getWidth()/2), y - (battery.getHeight()/2), null);
-                    c.drawBitmap(resistor, x - (resistor.getWidth()/2), y - (resistor.getHeight()/2), null);
+                    c = holder.lockCanvas(); //to lock the canvas in order to paint to the canvas
+                if (flag_pressed == true)
+                {
+                    c.drawBitmap(battery, 50, 50, null);
+                    flag_pressed = false;
+
+                }
+                else if (flag_pressed == true)
+                {
+                    c.drawBitmap(resistor, 50, 50, null);
+                    flag_pressed = false;
+                }
+                    //c.drawARGB(255, 150, 150, 10); //paint background of canvas
+                    //c.drawBitmap(battery, 50, 50, null);
+                    //c.drawBitmap(battery, x, y, null);
+                    //c.drawBitmap(resistor, x - (resistor.getWidth()/2), y - (resistor.getHeight()/2), null);
+
                     holder.unlockCanvasAndPost(c);
             }
         }
@@ -168,15 +191,21 @@ public class circuitboard extends ActionBarActivity implements View.OnTouchListe
 
 
     public void displayPS2(View view) {
+        //Intent intent = new Intent(this, OurView.class);
+        //this.startActivity(intent);
+
+        flag_pressed = true;
+
+
 
         //Toast.makeText(this,"button clicked",Toast.LENGTH_SHORT).show();
 
         //Toast.makeText(this,"battery created",Toast.LENGTH_SHORT).show();
-      //  c.drawBitmap(battery, x, y, null);
+        //c.drawBitmap(battery, x, y, null);
 
     }
 
     public void displayR2(View view) {
-        //  c.drawBitmap(resistor, x, y, null);
+        flag_pressed = true;
     }
 }
