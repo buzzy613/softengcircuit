@@ -33,24 +33,27 @@ public class Circuit {
             status = "Unpowered";
         }
 
+
+        Component branches[][] = new Component[components.size()][components.size()];//how to make this smaller?
         //the following makes sure there is a complete circuit and marks offline components
-        int circuitcheck = powercheck;
+        Component circuitcheck = components.get(powercheck);
         if ( status.equals( "Valid" )) {
-            if ( components.elementAt( circuitcheck ).getConnected().isEmpty() )//if there is nothing connected to the battery...
+            if ( circuitcheck.getConnected().isEmpty() )//if there is nothing connected to the battery...
                 status = "Incomplete";
 
-            else {
-                int[] checked;
-                checked = new int[components.size()];
+            else {//this actually checks things
+                Component[] checked;
+                checked = new Component[components.size()];
+                circuitcheck = circuitcheck.getConnected().get(0);
+
                 do{
-                    int contains;
+                    int contains = 0;
                     for (int i = 0; i < checked.length; i++){
-                        if ( checked[i] == circuitcheck ){
+                        if ( checked[i] == circuitcheck )
                             contains = 1;
-                        }
                     }
-                    if 
-                }while ( circuitcheck != powercheck );
+
+                }while ( circuitcheck != components.get(powercheck) );
             }
         }
 
