@@ -1,6 +1,8 @@
 package com.joshrobjames.circuitapp;
 
 import java.util.Vector;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by James on 3/30/2015.
@@ -12,7 +14,8 @@ public class Circuit {
 
     public void addComponent ( Component C ) {
         components.add( C );
-    }//IS THIS SUFFICIENT?
+        components.lastElement().setIndex( components.size() - 1 );
+    }//IS THIS SUFFICIENT? prolly
 
 
     public String simulation () {
@@ -42,30 +45,30 @@ public class Circuit {
                 status = "Incomplete";
 
             else {//this actually checks things
+                int checkedsum = 0;
+
                 Component[] checked;
                 checked = new Component[components.size()];
                 circuitcheck = circuitcheck.getConnected().get(0);
 
+
                 int branchy = 0;
                 int branchx = 0;
 
-                do{
-                    int contains = 0;
-                    for (int i = 0; i < checked.length; i++){
-                        if ( checked[i] == circuitcheck )
-                            contains = 1;
+                do{//LOOP TIME!
+                    List<Component> checkList = Arrays.asList(checked);
+
+                    //if we're not at the end and we haven't checked it already...
+                    if (( circuitcheck.getConnected().size() > 1 ) && !( checkList.contains(circuitcheck) )){
+                        int next = 0;
+                        //until we haven't checked get(i) yet...
+                        for ( int i = 1; !checkList.contains(circuitcheck.getConnected().get(i-1)); i++){//still needs changes
+                            next = i;
+                        }
                     }
-                    if ( circuitcheck.getConnected().size() <= 2 ){
-                        branches[branchy][branchx] = circuitcheck;
-                        branchx++;
-                    }
-                    else{
-                        branchy++;
-                        branchx = 0;
-                        branches[branchy][branchx] = circuitcheck;
-                    }
-                    
-                }while ( circuitcheck != components.get(powercheck) );
+
+                }while ( checkedsum <= components.size() );
+
             }
         }
 
